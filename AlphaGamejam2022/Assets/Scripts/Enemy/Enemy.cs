@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int dmg;
     [SerializeField] private int healthPoints;
     [SerializeField] private bool meele;
+    [SerializeField] private int heatToReduce;
     public bool isMoving = true;
     private Transform player;
 
@@ -71,12 +72,11 @@ public class Enemy : MonoBehaviour
             col.gameObject.GetComponent<Fireplace>().ReduceHeat();
             DestroyObject();
         }
-
-
+        
         if(!col.gameObject.CompareTag("Player"))
             return;
 
-        //col.gameObject.GetComponent<PlayerController>().takeDamage;
+        col.gameObject.GetComponent<WeaponController>().ReduceHeat(heatToReduce);
         DestroyObject();
     }
 }

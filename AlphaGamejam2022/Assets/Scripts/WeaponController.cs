@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Weapon {Gun, ShockWave}
+public enum Weapon {Gun = 0, ShockWave = 1}
 public class WeaponController : MonoBehaviour
 {
     [Header("Player stats")]
@@ -83,21 +83,28 @@ public class WeaponController : MonoBehaviour
         switch (currentWeapon)
         {
             case Weapon.Gun:
-                weaponText.text = "Gun";
+                weaponText.text = "Current Weapon: Gun";
                 break;
             case Weapon.ShockWave:
-                weaponText.text = "ShockWave";
+                weaponText.text = "Current Weapon: ShockWave";
                 break;
         }
     }
 
     private void UpdateHeat()
     {
-        if (inFireRange)
-            return;
+        if (inFireRange == false)
+            heat -= headReductionRate * Time.deltaTime;
 
-        heat -= headReductionRate * Time.deltaTime;
+        if (inFireRange && heat < 100)
+            heat += headReductionRate * Time.deltaTime * 2;
+        
         heatBar.value = heat / 100;
+    }
+
+    public void ReduceHeat(int heatToReduce)
+    {
+        heat -= heatToReduce;
     }
 
     System.Collections.IEnumerator Co_ShockWave()

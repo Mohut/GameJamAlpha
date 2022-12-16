@@ -103,6 +103,7 @@ MonoBehaviour:
   dmg: 10
   healthPoints: 5
   meele: 1
+  heatToReduce: 10
   isMoving: 1
 --- !u!61 &8970625877105955393
 BoxCollider2D:

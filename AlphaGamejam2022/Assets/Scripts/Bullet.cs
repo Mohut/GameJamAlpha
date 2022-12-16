@@ -1,9 +1,8 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private int damage;
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb;
     public Vector3 direction;
@@ -28,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            //col.GetComponent<Enemy>().TakeDamage();
+            col.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }
