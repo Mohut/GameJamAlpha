@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    public void LoadNewGame()
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }
+
 }
