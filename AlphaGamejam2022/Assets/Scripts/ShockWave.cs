@@ -7,16 +7,18 @@ public class ShockWave : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-        }
+            col.gameObject.GetComponent<Enemy>().TakeDamage(damage * GameObject.Find("Player").GetComponent<WeaponController>().damageMuliplicator);
+            
+            if(GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().nextWeapon == Weapon.ShockWave)
+            {
+                GameObject.Find("Player").GetComponent<WeaponController>().IncreaseDamage();
+            }
+            else
+            {
+                GameObject.Find("Player").GetComponent<WeaponController>().DecreaseDamage();
+            }
         
-        if(GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().nextWeapon == Weapon.ShockWave)
-        {
-            GameObject.Find("Player").GetComponent<WeaponController>().IncreaseDamage();
-        }
-        else
-        {
-            GameObject.Find("Player").GetComponent<WeaponController>().DecreaseDamage();
+            GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().NextWeapon();
         }
     }
 }

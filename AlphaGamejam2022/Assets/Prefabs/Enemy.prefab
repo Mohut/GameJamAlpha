@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6968692593832876181}
   - component: {fileID: 1664758427407758571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthEmpty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5017104360179302271}
   - component: {fileID: 8970625877105955393}
   - component: {fileID: 9014445851054582311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8971161655049664407}
   - component: {fileID: 3557168948580918038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}

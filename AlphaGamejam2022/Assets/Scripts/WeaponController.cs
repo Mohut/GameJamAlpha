@@ -138,7 +138,7 @@ public class WeaponController : MonoBehaviour
     {
         shockWave.transform.position = transform.position;
         shockWave.SetActive(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         shockWave.SetActive(false);
     }
 }

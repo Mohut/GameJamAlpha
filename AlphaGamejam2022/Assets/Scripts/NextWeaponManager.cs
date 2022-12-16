@@ -11,7 +11,7 @@ public class NextWeaponManager : MonoBehaviour
     }
 
     [ContextMenu("test")]
-    private void NextWeapon()
+    public void NextWeapon()
     {
         nextWeapon = (Weapon)Random.Range(0, 2);
 

@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            col.GetComponent<Enemy>().TakeDamage(damage);
+            col.GetComponent<Enemy>().TakeDamage(damage * GameObject.Find("Player").GetComponent<WeaponController>().damageMuliplicator);
             
             if(GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().nextWeapon == Weapon.Gun)
             {
@@ -37,6 +37,9 @@ public class Bullet : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<WeaponController>().DecreaseDamage();
             }
+            
+            GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().NextWeapon();
+            DestroyBullet();
         }
     }
 }
