@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ba29263c365d04bb207fac1298720f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 34
 --- !u!1 &5901806853106790209
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heat: 100
   headReductionRate: 0
+  gameOverScreen: {fileID: 0}
   heatBar: {fileID: 0}
   weaponText: {fileID: 0}
   bulletPrefab: {fileID: 8050827521955625001, guid: 5cad4f65020e50145964d0a5b67a45de, type: 3}

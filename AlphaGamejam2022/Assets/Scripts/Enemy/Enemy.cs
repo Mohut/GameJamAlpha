@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private Transform healtBar;
     [SerializeField] private int speed;
     [SerializeField] private int dmg;
     [SerializeField] private int healthPoints;
@@ -48,6 +49,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthPoints -= damage;
+        float healthBarfill = healthPoints / 100f;
+        healtBar.localScale = new Vector3(healthBarfill, 1, 1);
+        
+        
         if (CheckIfDead())
         {
             DestroyObject();

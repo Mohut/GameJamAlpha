@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float heat = 100;
     [SerializeField] private float headReductionRate;
 
+    [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Slider heatBar;
     [SerializeField] private TextMeshProUGUI weaponText;
     [SerializeField] private GameObject bulletPrefab;
@@ -20,6 +21,7 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         camera = Camera.main;
         SetWeaponText();
     }
@@ -100,6 +102,12 @@ public class WeaponController : MonoBehaviour
             heat += headReductionRate * Time.deltaTime * 2;
         
         heatBar.value = heat / 100;
+
+        if (heat <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void ReduceHeat(int heatToReduce)
