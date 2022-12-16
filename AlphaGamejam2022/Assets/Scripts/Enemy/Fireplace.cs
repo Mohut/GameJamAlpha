@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fireplace : MonoBehaviour
 {
+    [SerializeField] private int maxheat;
     [SerializeField] private int heat;
     [SerializeField] private int maxrangeRadius;
     [SerializeField] private int rangeRadius;
@@ -12,13 +13,14 @@ public class Fireplace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        heat = maxheat;
         rangeRadius = maxrangeRadius;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateFireRange();
+        
     }
 
     private void UpdateFireRange()
@@ -26,14 +28,22 @@ public class Fireplace : MonoBehaviour
         rangeRadius = maxrangeRadius * heat / 100;
         firePlaceTransform.localScale = new Vector2(rangeRadius, rangeRadius);
     }
-
-
+    
     public void ReduceHeat(){
         if(heat >= 10){
             heat -= 10;
         }else if(heat < 0){
             heat = 0;
         }
+        UpdateFireRange();
+    }
+
+    public void AddHeat(int heatbonus)
+    {
+        this.heat += heatbonus;
+        if (heat > maxheat)
+            this.heat = maxheat;
+        UpdateFireRange();
     }
 
     public void CoolDown(){

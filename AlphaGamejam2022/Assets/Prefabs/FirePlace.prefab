@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026e8b3933ebed241acd3cbe9ba67e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxheat: 100
   heat: 100
   maxrangeRadius: 5
   rangeRadius: 3

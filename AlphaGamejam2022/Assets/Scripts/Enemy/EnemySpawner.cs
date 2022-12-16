@@ -13,8 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int ymax;
 
     [SerializeField] private int minDistance;
-    
-    
+
     private float spawnx;
     private float spawny;
     private float randomx;
