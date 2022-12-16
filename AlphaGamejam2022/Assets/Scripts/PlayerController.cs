@@ -10,10 +10,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+    }
+
+    private void Movement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
         movement = Vector2.ClampMagnitude(movement, 1f);
         transform.position = transform.position + (Vector3)(movement * speed * Time.deltaTime);
+    }
+
+    private void ReduceHeat(int heat)
+    {
+        
     }
 }

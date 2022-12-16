@@ -1,16 +1,34 @@
-using System.Collections.Generic;
-using UnityEditor.Search;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 public enum Weapon {Gun, ShockWave}
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
+    [Header("Player stats")]
+    [SerializeField] private float heat = 100;
+    [SerializeField] private float headReductionRate;
+
+    [SerializeField] private Slider heatBar;
+    [SerializeField] private TextMeshProUGUI weaponText;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject shockWave;
-    private Weapon currentWeapon = Weapon.ShockWave;
     
+    private Camera camera;
+    private Weapon currentWeapon = Weapon.ShockWave;
+    public bool inFireRange = true;
+
+    private void Start()
+    {
+        camera = Camera.main;
+        SetWeaponText();
+    }
+
     void Update()
     {
+        heatBar.value = heat / 100;
+        UpdateHeat();
+        
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ChangeWeapon();
@@ -32,10 +50,18 @@ public class WeaponController : MonoBehaviour
     private void ChangeWeapon()
     {
         if (currentWeapon == Weapon.Gun)
+        {
             currentWeapon = Weapon.ShockWave;
-
+            SetWeaponText();
+            return;
+        }
+        
         if (currentWeapon == Weapon.ShockWave)
+        {
             currentWeapon = Weapon.Gun;
+            SetWeaponText();
+            return;
+        }
     }
 
     private void ShootBullet()
@@ -50,6 +76,28 @@ public class WeaponController : MonoBehaviour
         {
             StartCoroutine(Co_ShockWave());
         }
+    }
+
+    private void SetWeaponText()
+    {
+        switch (currentWeapon)
+        {
+            case Weapon.Gun:
+                weaponText.text = "Gun";
+                break;
+            case Weapon.ShockWave:
+                weaponText.text = "ShockWave";
+                break;
+        }
+    }
+
+    private void UpdateHeat()
+    {
+        if (inFireRange)
+            return;
+
+        heat -= headReductionRate * Time.deltaTime;
+        heatBar.value = heat / 100;
     }
 
     System.Collections.IEnumerator Co_ShockWave()
