@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8050827521955625001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.99, y: -1.76, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1a7eb1a23df2f46a61fe866c10bfec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 34
-  speed: 15
+  damage: 20
+  speed: 30
   rb: {fileID: 3013359448800733537}
   direction: {x: 0, y: 0, z: 0}
 --- !u!58 &890558914119495060

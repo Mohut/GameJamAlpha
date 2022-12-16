@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Fireplace : MonoBehaviour
 {
+    [SerializeField] private float heatReductionOverTime;
     [SerializeField] private int maxheat;
-    [SerializeField] private int heat;
-    [SerializeField] private int maxrangeRadius;
-    [SerializeField] private int rangeRadius;
+    [SerializeField] private float heat;
+    [SerializeField] private float maxrangeRadius;
+    [SerializeField] private float rangeRadius;
     [SerializeField] Transform firePlaceTransform;
 
     // Start is called before the first frame update
@@ -20,12 +21,14 @@ public class Fireplace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        heat -= heatReductionOverTime * Time.deltaTime;
+        UpdateFireRange();
     }
 
     private void UpdateFireRange()
     {
-        rangeRadius = maxrangeRadius * heat / 100;
+        if(heat <= 0 == false)
+            rangeRadius = maxrangeRadius * heat / 100;
         firePlaceTransform.localScale = new Vector2(rangeRadius, rangeRadius);
     }
     

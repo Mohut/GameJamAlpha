@@ -35,7 +35,7 @@ public class WeaponController : MonoBehaviour
         heatBar.value = heat / 100;
         UpdateHeat();
         
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeWeapon();
         }
@@ -52,6 +52,9 @@ public class WeaponController : MonoBehaviour
                     break;
             }
         }
+        
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
     private void ChangeWeapon()
     {

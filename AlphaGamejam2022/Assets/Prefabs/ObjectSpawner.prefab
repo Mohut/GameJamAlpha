@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefeb: {fileID: 5017104360179302268, guid: 1e74f9778a63c2d4ca372fe637b64f60, type: 3}
-  spawnrate: 100
+  spawnrate: 500
   xmax: 20
   ymax: 20
   minDistance: 9
@@ -64,6 +64,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffPrefeb: {fileID: 1754548433813518765, guid: 7e1478d07df4fff4b8ede84e52419a83, type: 3}
   spawnrate: 300
-  xmax: 8
-  ymax: 8
+  xmax: 2
+  ymax: 5
   minDistance: 4
