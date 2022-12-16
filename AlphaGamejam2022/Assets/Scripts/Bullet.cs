@@ -28,6 +28,15 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             col.GetComponent<Enemy>().TakeDamage(damage);
+            
+            if(GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().nextWeapon == Weapon.Gun)
+            {
+                GameObject.Find("Player").GetComponent<WeaponController>().IncreaseDamage();
+            }
+            else
+            {
+                GameObject.Find("Player").GetComponent<WeaponController>().DecreaseDamage();
+            }
         }
     }
 }
