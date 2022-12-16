@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 5
-  strength: 20
+  strength: 10
   firePlaceScript: {fileID: 0}
 --- !u!61 &1754548433813518761
 BoxCollider2D:

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4784834140893791030}
   - component: {fileID: 4784834140893791032}
+  - component: {fileID: 1130563828762203576}
   m_Layer: 0
   m_Name: ObjectSpawner
   m_TagString: Untagged
@@ -49,3 +50,20 @@ MonoBehaviour:
   xmax: 20
   ymax: 20
   minDistance: 9
+--- !u!114 &1130563828762203576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784834140893791033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227e2e9d26018834f9270c2163c4d8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffPrefeb: {fileID: 1754548433813518765, guid: 7e1478d07df4fff4b8ede84e52419a83, type: 3}
+  spawnrate: 300
+  xmax: 8
+  ymax: 8
+  minDistance: 4
