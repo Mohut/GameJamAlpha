@@ -4,7 +4,7 @@ using UnityEngine;
 public class NextWeaponManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nextWeaponText;
-    [SerializeField] private Weapon nextWeapon = Weapon.Gun;
+    [SerializeField] public Weapon nextWeapon = Weapon.Gun;
     void Start()
     {
         NextWeapon();

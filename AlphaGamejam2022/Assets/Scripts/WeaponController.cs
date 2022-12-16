@@ -8,7 +8,11 @@ public class WeaponController : MonoBehaviour
     [Header("Player stats")]
     [SerializeField] private float heat = 100;
     [SerializeField] private float headReductionRate;
+    public int damageMuliplicator = 1;
 
+    [SerializeField] private SpriteRenderer image;
+    private Color red = Color.red;
+    private Color white = Color.white;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Slider heatBar;
     [SerializeField] private TextMeshProUGUI weaponText;
@@ -16,7 +20,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject shockWave;
     
     private Camera camera;
-    private Weapon currentWeapon = Weapon.ShockWave;
+    public Weapon currentWeapon = Weapon.ShockWave;
     public bool inFireRange = true;
 
     private void Start()
@@ -108,6 +112,21 @@ public class WeaponController : MonoBehaviour
             gameOverScreen.SetActive(true);
             Time.timeScale = 0;
         }
+    }
+
+    public void IncreaseDamage()
+    {
+        if (damageMuliplicator < 3)
+        {
+            damageMuliplicator++;
+            image.color = Color.Lerp(white, red, damageMuliplicator/3f);
+        }
+    }
+
+    public void DecreaseDamage()
+    {
+        damageMuliplicator = 1;
+        image.color = Color.Lerp(white, red, 0);
     }
 
     public void ReduceHeat(int heatToReduce)

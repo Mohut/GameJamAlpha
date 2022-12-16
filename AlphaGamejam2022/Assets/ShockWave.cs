@@ -9,5 +9,14 @@ public class ShockWave : MonoBehaviour
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
+        
+        if(GameObject.Find("NextWeaponManager").GetComponent<NextWeaponManager>().nextWeapon == Weapon.ShockWave)
+        {
+            GameObject.Find("Player").GetComponent<WeaponController>().IncreaseDamage();
+        }
+        else
+        {
+            GameObject.Find("Player").GetComponent<WeaponController>().DecreaseDamage();
+        }
     }
 }
